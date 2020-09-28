@@ -1,4 +1,5 @@
-// var questions = [] array of objects
+// var questions = ["object1", "object2", etc.]
+
 // object name {
 //   title: "question name",
 //   choices: ["choice1", "choice2", "choice3", etc],
@@ -6,8 +7,6 @@
 // }
 
 // question[0].title returns string "question name"
-
-// quiz question: what does DOM stand for
 
 // .innerHTML.textContent = question[i].title
 // id.addEventListener().innerHTML.textContent = question[i].choices[i]
@@ -29,9 +28,72 @@ var initialsEl = document.getElementById("initials");
 var scoreEl = document.getElementById("score");
 var questionTitle = document.getElementById("question-title");
 var feedbackEl = document.getElementById("feedback");
+var questions = [question1, question2, question3, question4, question5, question6, question7, question8, question9, question10];
+
+
+// question objects
+var question1 = {
+  title: "What defines the initial, basic structure of a webpage?",
+  choices: ["CSS", "JavaScript", "HTML", "C++"],
+  answer: "HTML",
+}
+
+var question2 = {
+  title: "What does DOM stand for?",
+  choices: ["Document Object Model", "Data Orientation Manager", "Danger Overload Monster", "Domination Over Manhattan"],
+  answer: "Document Object Model",
+}
+
+var question3 = {
+  title: "What is each element of an object called?",
+  choices: ["function", "key", "method", "limiter"],
+  answer: "Key",
+}
+
+var question4 = {
+  title: "What styles a webpage?",
+  choices: ["a", "b", "c", "CSS"],
+  answer: "CSS",
+}
+
+var question5 = {
+  title: "What is a method?",
+  choices: ["a", "b", "c", "d"],
+  answer: "",
+}
+
+var question6 = {
+  title: "",
+  choices: ["a", "b", "c", "d"],
+  answer: "",
+}
+
+var question7 = {
+  title: "",
+  choices: ["a", "b", "c", "d"],
+  answer: "",
+}
+
+var question8 = {
+  title: "",
+  choices: ["a", "b", "c", "d"],
+  answer: "",
+}
+
+var question9 = {
+  title: "",
+  choices: ["a", "b", "c", "d"],
+  answer: "",
+}
+
+var question10 = {
+  title: "",
+  choices: ["a", "b", "c", "d"],
+  answer: "",
+}
+
 
 // functions
-
 startBtn.onclick = startQuiz();
 
 function startQuiz() {
@@ -72,7 +134,7 @@ function questionClick() {
       time = 0;
     }
     timerEl.textContent = time;
-    feedbackEl.textContent = "I'm sorry, Dave, that was incorrect.";
+    feedbackEl.textContent = "I'm sorry, Dave, I'm afraid that was incorrect.";
   } else {
     feedbackEl.textContent = "correct";
   } 
