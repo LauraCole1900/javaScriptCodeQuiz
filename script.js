@@ -19,13 +19,14 @@
 var currentQuestionIndex = 0;
 var timerId;
 var time = 60;
-var questionsEl = document.getElementById("questions");
 var timerEl = document.getElementById("timer");
+var questionsEl = document.getElementById("questions");
 var choicesEl = document.getElementById("choices");
 var submitBtn = document.getElementById("submit");
 var startBtn = document.getElementById("start");
 var initialsEl = document.getElementById("initials");
-var scoreEl = document.getElementById("score");
+var score = 0;
+var scoreEl = document.getElementById("scorebrd");
 var questionTitle = document.getElementById("question-title");
 var feedbackEl = document.getElementById("feedback");
 var questions = [question1, question2, question3, question4, question5, question6, question7, question8, question9, question10];
@@ -137,6 +138,8 @@ function questionClick() {
     feedbackEl.textContent = "I'm sorry, Dave, I'm afraid that was incorrect.";
     feedbackEl.style.fontFamily = "'Questrial',sans-serif";
   } else {
+    score++;
+    scoreEl.textContent = score;
     feedbackEl.textContent = "You have chosen ... wisely.";
     feedbackEl.style.fontFamily = "'Grenze Gotisch',cursive;";
   }
