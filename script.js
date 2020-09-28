@@ -95,6 +95,13 @@ var questions = [question1, question2, question3, question4, question5, question
 
 
 // functions
+
+// user clicks start button to call this function
+// it needs to:
+// hide the landing page
+// set timer to 60 seconds?
+// call clockTick()
+// call getQuestion()
 function startQuiz() {
   var startScreenEl = document.getElementById("start-screen");
   startScreenEl.setAttribute("style", "display: none");
@@ -114,25 +121,26 @@ function clockTick() {
 }
 
 // show question
-// show answer buttons
+// show answer choices as clickable buttons
 // advance to next question when user selects an answer
+// call questionClick()
 // when when currentQuestion = currentQuestionIndex.length OR timer reaches 0, endQuiz()
 function getQuestion() {
   var currentQuestion = questions[currentQuestionIndex];
   var titleEl = document.getElementById("question-title");
-  console.log(currentQuestionIndex);
-  titleEl.textContent = currentQuestion.title;
+  titleEl.textContent = currentQuestionIndex + 1 + ". " + currentQuestion.title;
   choicesEl.innerHTML = "";
   currentQuestion.choices.forEach(function(choice, i) {
     var choiceBtn = document.createElement("button");
     choiceBtn.setAttribute("class", "choice");
     choiceBtn.setAttribute("value", choice);
     choiceBtn.textContent = i + 1 + ". " + choice;
-    choiceBtn.onclick = questionClick();
+    choiceBtn.addEventListener("click", questionClick);
     choicesEl.appendChild(choiceBtn);
   });
 }
 
+//
 function questionClick() {
   if (this.value !== questions[currentQuestionIndex].answer) {
     time-= 5;
@@ -177,6 +185,4 @@ function saveHighScores() {
   // print scores to page in order highest to lowest
 }
 
-start.addEventListener("click", function(){
-  startQuiz();
-});
+start.addEventListener("click", startQuiz);
