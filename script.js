@@ -25,12 +25,9 @@ var choicesEl = document.getElementById("choices");
 var submitBtn = document.getElementById("submit");
 var startBtn = document.getElementById("start");
 var initialsEl = document.getElementById("initials");
-var score = 0;
-var scoreEl = document.getElementById("scorebrd");
 var questionTitle = document.getElementById("question-title");
+var startScreenEl = document.getElementById("start-screen");
 var feedbackEl = document.getElementById("feedback");
-var questions = [question1, question2, question3, question4, question5, question6, question7, question8, question9, question10];
-
 
 // question objects
 var question1 = {
@@ -93,10 +90,11 @@ var question10 = {
   answer: "<p>, <div>, <main>, <header>",
 }
 
+// questions array
+var questions = [question1, question2, question3, question4, question5, question6, question7, question8, question9, question10];
+
 
 // functions
-startBtn.onclick = startQuiz();
-
 function startQuiz() {
   var startScreenEl = document.getElementById("start-screen");
   startScreenEl.setAttribute("style", "display: none");
@@ -105,6 +103,8 @@ function startQuiz() {
   getQuestion();
 }
 
+// tick down every 1 seconds
+// show updated time
 function clockTick() {
   time--;
   timerEl.textContent = time;
@@ -113,9 +113,14 @@ function clockTick() {
   }
 }
 
+// show question
+// show answer buttons
+// advance to next question when user selects an answer
+// when when currentQuestion = currentQuestionIndex.length OR timer reaches 0, endQuiz()
 function getQuestion() {
   var currentQuestion = questions[currentQuestionIndex];
   var titleEl = document.getElementById("question-title");
+  console.log(currentQuestionIndex);
   titleEl.textContent = currentQuestion.title;
   choicesEl.innerHTML = "";
   currentQuestion.choices.forEach(function(choice, i) {
@@ -138,8 +143,6 @@ function questionClick() {
     feedbackEl.textContent = "I'm sorry, Dave, I'm afraid that was incorrect.";
     feedbackEl.style.fontFamily = "'Questrial',sans-serif";
   } else {
-    score++;
-    scoreEl.textContent = score;
     feedbackEl.textContent = "You have chosen ... wisely.";
     feedbackEl.style.fontFamily = "'Grenze Gotisch',cursive;";
   }
@@ -173,3 +176,7 @@ function saveHighScores() {
   // compare high scores
   // print scores to page in order highest to lowest
 }
+
+start.addEventListener("click", function(){
+  startQuiz();
+});
