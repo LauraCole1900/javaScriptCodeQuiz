@@ -105,7 +105,9 @@ var questions = [question1, question2, question3, question4, question5, question
 function startQuiz() {
   var startScreenEl = document.getElementById("start-screen");
   startScreenEl.setAttribute("style", "display: none");
-  timerId = setInterval(clockTick(), 1000);
+  timerId = setInterval(function () {
+    clockTick()
+  }, 1000);
   timerEl.textContent = time;
   getQuestion();
 }
@@ -166,15 +168,12 @@ function questionClick() {
 }
 
 function endQuiz() {
-  if (time > 0) {
-    time = 0;
-    timerEl.textContent = time;
+
   }
   // change display to none ("style", "display: none")
   // show div for high scores
   // hide other divs
   // call saveHighScores()
-}
 
 function saveHighScores() {
   var playerInitials = "";
