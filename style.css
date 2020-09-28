@@ -1,0 +1,40 @@
+body {
+  background-color: lightgray;
+}
+
+h1 {
+  text-align: center;
+}
+
+p {
+  margin: 50px 200px;
+  font-family: 'Questrial', sans-serif;
+}
+
+.btnDiv {
+  text-align: center;
+}
+
+#start {
+  border: 3px solid black;
+  background-color: #1b3097;
+  border-radius: 25px;
+  display: inline-block;
+  font-size: 16px;
+  font-family: 'Questrial', sans-serif;
+  line-height: 16px;
+  margin: 16px 16px 16px 20px;
+  padding: 14px 34px;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+}
+
+h2 {
+  text-align: center;
+}
+
+#choices {
+  margin: 50px 200px;
+
+}

@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@300&family=Questrial&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@300&family=Questrial&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <title>Coding Quiz</title>
 </head>
+
 <body>
   <div id="timer">
     <!-- timer in js -->
@@ -16,9 +20,13 @@
     <h1>Welcome to my code quiz!</h1>
     <p>
       <!-- explain how quiz works with timer, hs, etc. -->
-      You have 60 seconds to answer ten multiple-choice questions about webcoding. For each wrong answer, you will lose five seconds on the clock. At the end, if you have achieved one of the top ten fastest times, you will be given the opportunity to add your initials to the High Scores.
+      You have 60 seconds to answer ten multiple-choice questions about webcoding. For each wrong answer, you will lose
+      five seconds on the clock. At the end, if you have achieved one of the top ten fastest times, you will be given
+      the opportunity to add your initials to the High Scores.
     </p>
-    <button id="start">Click to start quiz</button>
+    <div class="btnDiv">
+      <button id="start">Click to start quiz</button>
+    </div>
   </div>
   <div id="questions">
     <h2 id="question-title"></h2>
@@ -34,6 +42,7 @@
   </div>
   <script src="script.js"></script>
 </body>
+
 </html>
 
 <!-- Create questions, how many? -->
