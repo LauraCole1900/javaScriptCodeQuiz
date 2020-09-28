@@ -135,22 +135,27 @@ function questionClick() {
     }
     timerEl.textContent = time;
     feedbackEl.textContent = "I'm sorry, Dave, I'm afraid that was incorrect.";
+    feedbackEl.style.fontFamily = "'Questrial',sans-serif";
   } else {
     feedbackEl.textContent = "You have chosen ... wisely.";
-  } 
+    feedbackEl.style.fontFamily = "'Grenze Gotisch',cursive;";
+  }
   setTimeout(function() {
     feedbackEl.setAttribute("style", "display: none");
   }, 2000);
   currentQuestionIndex++;
   if (currentQuestionIndex === questions.length) {
-    // quiz end function
+    endQuiz();
   } else {
     getQuestion();
   }
 }
 
 function endQuiz() {
-  // clear interval of timerId
+  if (time > 0) {
+    time = 0;
+    timerEl.textContent = time;
+  }
   // change display to none ("style", "display: none")
   // show div for high scores
   // hide other divs
@@ -158,6 +163,7 @@ function endQuiz() {
 }
 
 function saveHighScores() {
+  var playerInitials = "";
   // target input field
   // user types initials, store in variable
   // store that variable in local storage
