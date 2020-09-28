@@ -40,56 +40,56 @@ var question1 = {
 
 var question2 = {
   title: "What does DOM stand for?",
-  choices: ["Document Object Model", "Data Orientation Manager", "Danger Overload Monster", "Domination Over Manhattan"],
+  choices: ["Document Object Model", "Data Orientation Manager", "Danger Overload Method", "Dune Overthrown by Muad'Dib"],
   answer: "Document Object Model",
 }
 
 var question3 = {
-  title: "What is each element of an object called?",
-  choices: ["function", "key", "method", "limiter"],
+  title: "What is each element of a JavaScript object called?",
+  choices: ["Function", "Key", "Method", "Limiter"],
   answer: "Key",
 }
 
 var question4 = {
-  title: "What styles a webpage?",
-  choices: ["a", "b", "c", "CSS"],
+  title: "What does most of the styling on a webpage?",
+  choices: ["HTML", "jQuery", "JavaScript", "CSS"],
   answer: "CSS",
 }
 
 var question5 = {
-  title: "What is a method?",
-  choices: ["a", "b", "c", "d"],
-  answer: "",
+  title: "What is a JavaScript method?",
+  choices: ["A style of coding", "An approach to acting", "A function within an object", "A discrete bit of code that performs an action"],
+  answer: "A function within an object",
 }
 
 var question6 = {
-  title: "",
-  choices: ["a", "b", "c", "d"],
-  answer: "",
+  title: "What does it mean to 'call' a function?",
+  choices: ["Use the word 'function'", "Define the action the function will take", "Give the function a name as part of its definition", "Activate the function by naming it outside of its definition"],
+  answer: "Activate the function by naming it outside of its definition",
 }
 
 var question7 = {
-  title: "",
-  choices: ["a", "b", "c", "d"],
-  answer: "",
+  title: "Which of the following all use curly brackets {} in JavaScript?",
+  choices: ["Variables, arrays, functions", "If/else statements, variables, objects", "Arrays, if/else statements, objects", "Functions, objects, if/else statements"],
+  answer: "Functions, objects, if/else statements",
 }
 
 var question8 = {
-  title: "",
-  choices: ["a", "b", "c", "d"],
-  answer: "",
+  title: "Which of the following uses square brackets [] in JavaScript?",
+  choices: ["Objects", "Arrays", "Functions", "Variables"],
+  answer: "Arrays",
 }
 
 var question9 = {
-  title: "",
-  choices: ["a", "b", "c", "d"],
-  answer: "",
+  title: "What is a 'child element'?",
+  choices: ["An element that throws an error", "An element contained directly inside of its parent, with no other containing elements in between", "An element with the capacity to learn", "An element that breaks the code"],
+  answer: "An element contained directly inside of its parent, with no other containing elements in between",
 }
 
 var question10 = {
-  title: "",
-  choices: ["a", "b", "c", "d"],
-  answer: "",
+  title: "Which of the following are all examples of HTML tags?",
+  choices: ["<p>, <div>, <main>, <header>", "<h1>, <ul>, <contain>, <hero>", "<img>, <start>, <switch>, <table>", "<engage>, <make-it-so>, <override>, <captain>"],
+  answer: "<p>, <div>, <main>, <header>",
 }
 
 
@@ -108,7 +108,7 @@ function clockTick() {
   time--;
   timerEl.textContent = time;
   if (time <= 0) {
-    // end quiz here;
+    endQuiz();
   }
 }
 
@@ -136,7 +136,7 @@ function questionClick() {
     timerEl.textContent = time;
     feedbackEl.textContent = "I'm sorry, Dave, I'm afraid that was incorrect.";
   } else {
-    feedbackEl.textContent = "correct";
+    feedbackEl.textContent = "You have chosen ... wisely.";
   } 
   setTimeout(function() {
     feedbackEl.setAttribute("style", "display: none");
