@@ -4,6 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@300&family=Questrial&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="style.css">
@@ -11,39 +13,67 @@
 </head>
 
 <body>
-  <div id="timer">
-    <!-- timer in js -->
-  </div>
-  <br />
-  <br />
-  <div id="start-screen">
-    <h1>Welcome to my code quiz!</h1>
-    <p>
-      <!-- explain how quiz works with timer, hs, etc. -->
-      You have 60 seconds to answer ten multiple-choice questions about webcoding. For each wrong answer, you will lose
-      five seconds on the clock. At the end, if you have achieved one of the top ten fastest times, you will be given
-      the opportunity to add your initials to the High Scores.
-    </p>
-    <div class="btnDiv">
-      <button id="start">Click to start quiz</button>
+  <div class="container rounded">
+    <div id="timer">
+      <!-- timer in js -->
     </div>
-  </div>
-  <div id="questions">
-    <h2 id="question-title"></h2>
-    <div id="choices">
-      <!-- answer choices in js -->
+    <br />
+    <br />
+    <div id="start-screen">
+      <div class="row header-row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+          <h1>Welcome to my code quiz!</h1>
+        </div>
+        <div class="col-sm-2"></div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+          <p>
+            <!-- explain how quiz works with timer, hs, etc. -->
+            You have 60 seconds to answer ten multiple-choice questions about webcoding. For each wrong answer, you will
+            lose
+            five seconds on the clock. At the end, if you have achieved one of the top ten fastest times, you will be
+            given
+            the opportunity to add your initials to the High Scores.
+          </p>
+        </div>
+        <div class="col-sm-2"></div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+          <div class="btnDiv">
+            <button id="start">Click to start quiz</button>
+          </div>
+        </div>
+        <div class="col-sm-2"></div>
+      </div>
     </div>
-    <div id="feedback">
-      <!-- tell user whether they were correct or not -->
+    <div id="questions">
+      <div class="row header-row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+      <h2 id="question-title"></h2>
+      </div>
+      <div class="col-sm-2"></div>
+      </div>
+      <div id="choices">
+        <!-- answer choices in js -->
+      </div>
+      <div id="feedback">
+        <!-- tell user whether they were correct or not -->
+      </div>
     </div>
-  </div>
-  <div id="high-scores">
-    <!-- high scores page -->
-    <div id="initials">
-      <!-- player initials list -->
+    <div id="high-scores">
+      <!-- high scores page -->
+      <div id="initials">
+        <!-- player initials list -->
+      </div>
     </div>
+    <script src="script.js"></script>
   </div>
-  <script src="script.js"></script>
 </body>
 
 </html>

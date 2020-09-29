@@ -7,7 +7,7 @@ h1 {
 }
 
 p {
-  margin: 50px 200px;
+  margin: 50px 0;
   font-family: 'Questrial', sans-serif;
 }
 
@@ -50,7 +50,7 @@ h2 {
 }
 
 #choices {
-  margin: 50px 200px;
+  margin: 50px 0;
 }
 
 #timer {

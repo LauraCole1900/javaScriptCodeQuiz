@@ -36,7 +36,7 @@ var question2 = {
 }
 
 var question3 = {
-  title: "What is each element of a JavaScript object called?",
+  title: "What is a variable name within a JavaScript object called?",
   choices: ["Function", "Key", "Method", "Limiter"],
   answer: "Key",
 }
