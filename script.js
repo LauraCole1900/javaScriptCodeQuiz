@@ -1,11 +1,8 @@
-// question[0].title returns string "question name"
-
 // .innerHTML.textContent = question[i].title
 // id.addEventListener().innerHTML.textContent = question[i].choices[i]
 // event delegation --> if what you click on is a button, then do action
 // each question is its own page
-// score and timer on each page
-
+// timer on each page
 
 // global variables
 var currentQuestionIndex = 0;
@@ -152,15 +149,17 @@ function questionClick() {
       endQuiz();
     }
     timerElement.textContent = time;
+    feedbackElement.setAttribute("style", "display: block");
     feedbackElement.textContent = "I'm sorry, Dave, I'm afraid that was incorrect.";
     feedbackElement.style.fontFamily = "'Questrial',sans-serif";
   } else {
+    feedbackElement.setAttribute("style", "display: block");
     feedbackElement.textContent = "You have chosen ... wisely.";
     feedbackElement.style.fontFamily = "'Grenze Gotisch', cursive;";
   }
   setTimeout(function () {
     feedbackElement.setAttribute("style", "display: none");
-  }, 2000);
+  }, 1000);
   currentQuestionIndex++;
   if (currentQuestionIndex === questions.length) {
     endQuiz();
