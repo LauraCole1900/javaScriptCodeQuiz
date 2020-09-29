@@ -72,3 +72,8 @@ h2 {
   text-align: center;
   color: white;
 }
+
+#submit {
+  margin-bottom: 50px;
+  display: inline-block;
+}

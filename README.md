@@ -2,7 +2,7 @@
 
 #### Description
 
-This is a timed, interactive multiple-choice quiz on webcoding using Javascript. It includes a time penalty for incorrect answers and a High Scores page. Users should click the "Click to start quiz" button to begin, and click on each of their selected answers. If their time is among the ten best, they will be given the opportunity to add their initials to the High Scores page.
+This is a timed, interactive multiple-choice quiz on webcoding using JavaScript. It includes a time penalty for incorrect answers and a Scores page. Users should click the "Click to start quiz" button to begin, and click on each of their selected answers. When the quiz is over, the user may save their initials and score.
 
 #### Screenshots
 ![Landing page](quiz-landing-page.png)

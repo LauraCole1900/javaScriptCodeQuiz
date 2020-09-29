@@ -9,15 +9,18 @@ var currentQuestionIndex = 0;
 var timerId;
 var time = 60;
 var timerElement = document.getElementById("timer");
+var startScreen = document.getElementById("start-screen");
+var startBtn = document.getElementById("start");
 var questionsElement = document.getElementById("questions");
 var choicesElement = document.getElementById("choices");
-var submitBtn = document.getElementById("submit");
-var startBtn = document.getElementById("start");
-var initialsElement = document.getElementById("initials");
 var questionTitle = document.getElementById("question-title");
-var startScreen = document.getElementById("start-screen");
 var feedbackElement = document.getElementById("feedback");
-var highScores = document.getElementById("high-scores");
+var scores = document.getElementById("scores-page");
+var initialsElement = document.getElementById("initials");
+var userScore;
+var addInitials;
+var userInitials;
+var submitBtn;
 
 // question objects
 var question1 = {
@@ -93,6 +96,7 @@ var questions = [question1, question2, question3, question4, question5, question
 // call clockTick()
 // call getQuestion()
 function startQuiz() {
+  timerElement.setAttribute("style", "display: inline-block");
   var startScreen = document.getElementById("start-screen");
   startScreen.setAttribute("style", "display: none");
   timerId = setInterval(function () {
@@ -170,27 +174,61 @@ function questionClick() {
 
 // stop the timer
 // change display to none
-// show div for high scores
+// show div for scores
 // hide other divs
-// call saveHighScores()
+// call enterInit()
 function endQuiz() {
   clearInterval(timerId);
   questionsElement.setAttribute("style", "display: none");
-  var hScores = document.createElement("h2");
-  hScores.textContent = "High Scores";
-  highScores.appendChild(hScores);
+  var scoresTitle = document.createElement("h2");
+  scoresTitle.textContent = "Scores";
+  scores.appendChild(scoresTitle);
+  addUser();
+}
+
+function addUser() {
+  userScore = document.createElement("p");
+  addInitials = document.createElement("p");
+  userInitials = document.createElement("input");
+  submitBtn = document.createElement("button");
+  userScore.textContent = "Congratulations! You have scored " + time +"!";
+  addInitials.textContent = "Add your initials here:";
+  userInitials.setAttribute("name", "initials");
+  userInitials.setAttribute("placeholder", "Type initials here");
+  submitBtn.textContent = "Submit";
+  submitBtn.setAttribute("class", "choice");
+  submitBtn.setAttribute("id", "submit");
+  scores.appendChild(userScore);
+  scores.appendChild(addInitials);
+  scores.appendChild(userInitials);
+  scores.appendChild(submitBtn);
+  submitBtn.addEventListener("click", enterInit);
 }
 
 // target input field
 // user types initials, store in variable
 // store that variable in local storage
-// compare high scores
-// print scores to page in order highest to lowest
-function saveHighScores() {
-  var playerInitials = "";
+function enterInit() {
+  if(userInitials === "" || userInitials === null) {
+    displayMessage("Please enter your initials");
+  }
+  localStorage.setItem("playerInit", userInitials);
+  localStorage.setItem("score", time);
+  userScore.setAttribute("style", "display: none");
+  addInitials.setAttribute("style", "display: none");
+  userInitials.setAttribute("style", "display: none");
+  submitBtn.setAttribute("style", "display: none");
+
 
 }
 
+function displayScores() {
+  localStorage.getItem("playerInit");
+  localStorage.getItem("score");
+}
+
+
 
 // start quiz
+timerElement.setAttribute("style", "display: none");
 start.addEventListener("click", startQuiz);

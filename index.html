@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <div class="container rounded">
+  <main class="container rounded">
     <div id="timer">
       <!-- timer in js -->
     </div>
@@ -31,12 +31,10 @@
         <div class="col-md-2"></div>
         <div class="col-md-8">
           <p>
-            <!-- explain how quiz works with timer, hs, etc. -->
+            <!-- explain how quiz works with timer, score, etc. -->
             You have 60 seconds to answer ten multiple-choice questions about webcoding. For each wrong answer, you will
-            lose
-            five seconds on the clock. At the end, if you have achieved one of the top ten fastest times, you will be
-            given
-            the opportunity to add your initials to the High Scores.
+            lose five seconds on the clock. At the end, you will be given the opportunity to add your initials to the
+            Scores page.
           </p>
         </div>
         <div class="col-md-2"></div>
@@ -55,25 +53,35 @@
       <div class="row header-row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
-      <h2 id="question-title"></h2>
+          <h2 id="question-title"></h2>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <div id="choices">
+            <!-- answer choices in js -->
+          </div>
+        </div>
+        <div class="col-md-2"></div>
       </div>
       <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <div id="feedback">
+          <!-- tell user whether they were correct or not -->
+        </div>
       </div>
-      <div id="choices">
-        <!-- answer choices in js -->
-      </div>
-      <div id="feedback">
-        <!-- tell user whether they were correct or not -->
-      </div>
+      <div class="col-md-2"></div>
     </div>
-    <div id="high-scores">
-      <!-- high scores page -->
+    <div id="scores-page">
+      <!-- scores page -->
       <div id="initials">
         <!-- player initials list -->
       </div>
     </div>
     <script src="script.js"></script>
-  </div>
+  </main>
 </body>
 
 </html>
