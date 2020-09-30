@@ -16,7 +16,6 @@ var choicesElement = document.getElementById("choices");
 var questionTitle = document.getElementById("question-title");
 var feedbackElement = document.getElementById("feedback");
 var scores = document.getElementById("scores-page");
-var initialsElement = document.getElementById("initials");
 var userScore;
 var addInitials;
 var userInitials;
@@ -208,6 +207,8 @@ function addUser() {
 // target input field
 // user types initials, store in variable
 // store that variable in local storage
+// store score in local storage
+// clear page as prep to render scores
 function enterInit() {
   if(userInitials === "" || userInitials === null) {
     displayMessage("Please enter your initials");
@@ -218,13 +219,20 @@ function enterInit() {
   addInitials.setAttribute("style", "display: none");
   userInitials.setAttribute("style", "display: none");
   submitBtn.setAttribute("style", "display: none");
-
-
+  displayScores();
 }
 
+// render initials and scores from local storage to the page
 function displayScores() {
-  localStorage.getItem("playerInit");
-  localStorage.getItem("score");
+  var playerInit = localStorage.getItem("playerInit");
+  var score = localStorage.getItem("score");
+  var headRow = document.createElement("div");
+  var userInfo = document.createElement("div");
+  headRow.textContent = ("Initials, Score");
+  headRow.setAttribute("class", "headrow");
+  userInfo.textContent = (playerInit + ", " + score);
+  scores.appendChild(headRow);
+  scores.appendChild(userInfo);
 }
 
 
