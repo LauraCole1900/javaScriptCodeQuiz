@@ -7,7 +7,7 @@
 // global variables
 var currentQuestionIndex = 0;
 var timerId;
-var time = 60;
+var time = 0;
 var timerElement = document.getElementById("timer");
 var startScreen = document.getElementById("start-screen");
 var startBtn = document.getElementById("start");
@@ -20,6 +20,7 @@ var userScore;
 var addInitials;
 var userInitials = "";
 var submitBtn;
+var restartBtn;
 
 // question objects
 var question1 = {
@@ -90,14 +91,19 @@ var questions = [question1, question2, question3, question4, question5, question
 
 // user clicks start button to call this function
 // it needs to:
+// set timer to 60 seconds
+// set question index to 0?
+// hide the scores page
 // hide the landing page
-// set timer to 60 seconds?
 // call clockTick()
 // call getQuestion()
 function startQuiz() {
-  timerElement.setAttribute("style", "display: inline-block");
-  var startScreen = document.getElementById("start-screen");
+  time = 60;
+  currentQuestionIndex = 0;
   startScreen.setAttribute("style", "display: none");
+  scores.setAttribute("style", "display: none");
+  questionsElement.setAttribute("style", "display: block");
+  timerElement.setAttribute("style", "display: inline-block");
   timerId = setInterval(function () {
     clockTick()
   }, 1000);
@@ -130,8 +136,8 @@ function getQuestion() {
     choiceBtn.setAttribute("class", "choice");
     choiceBtn.setAttribute("value", choice);
     choiceBtn.textContent = i + 1 + ". " + choice;
-    choiceBtn.addEventListener("click", questionClick);
     choicesElement.appendChild(choiceBtn);
+    choiceBtn.addEventListener("click", questionClick);
   });
 }
 
@@ -162,7 +168,7 @@ function questionClick() {
   }
   setTimeout(function () {
     feedbackElement.setAttribute("style", "display: none");
-  }, 1000);
+  }, 1200);
   currentQuestionIndex++;
   if (currentQuestionIndex === questions.length) {
     endQuiz();
@@ -174,15 +180,13 @@ function questionClick() {
 // stop the timer
 // change display to none
 // show div for scores
-// hide other divs
 // call addUser()
+// check whether page has already been built?
 function endQuiz() {
   clearInterval(timerId);
   questionsElement.setAttribute("style", "display: none");
-  var scoresTitle = document.createElement("h2");
-  scoresTitle.textContent = "Scores";
-  scores.appendChild(scoresTitle);
-  addUser();
+  scores.setAttribute("style", "display: block");
+    addUser();
 }
 
 // create user info input form
@@ -207,14 +211,20 @@ function addUser() {
 
 // target input field
 // user types initials, store in variable
-// store that variable in local storage
+// recursive function for if they don't enter initials?
+function enterInit() {
+  if (userInitials.value.length < 2) {
+  addInitials.textContent = "Please add your initials!";
+  submitBtn.addEventListener("click", enterInit);
+  } else {
+    saveScore();
+  }
+}
+
+// store initials in local storage
 // store score in local storage
 // clear page as prep to render scores
-function enterInit() {
-  // if (userInitials !== "") {
-  //   addInitials.textContent = "Please add your initials!";
-  //   submitBtn.addEventListener("click", enterInit);
-  // } else {
+function saveScore(){
   localStorage.setItem("playerInit", userInitials.value);
   localStorage.setItem("score", time);
   userScore.setAttribute("style", "display: none");
@@ -222,23 +232,34 @@ function enterInit() {
   userInitials.setAttribute("style", "display: none");
   submitBtn.setAttribute("style", "display: none");
   displayScores();
-  // }
 }
 
 // render initials and scores from local storage to the page
+// add restart
 function displayScores() {
   var playerInit = localStorage.getItem("playerInit");
   var score = localStorage.getItem("score");
-  var headRow = document.createElement("div");
+
+  // page checks to see if these already exist, only builds them if they don't
   var userInfo = document.createElement("div");
-  headRow.textContent = ("Initials, Score");
-  headRow.setAttribute("class", "headrow");
   userInfo.textContent = (playerInit + ", " + score);
-  scores.appendChild(headRow);
   scores.appendChild(userInfo);
+  restart();
 }
 
+function restart() {
+  restartBtn = document.createElement("button");
+  restartBtn.textContent = "Try again?";
+  restartBtn.setAttribute("class", "choice");
+  restartBtn.setAttribute("id", "restart");
+  scores.appendChild(restartBtn);
+  restartBtn.addEventListener("click", function(){
+    restartBtn.setAttribute("style", "display: none");
+    startQuiz();
+  });
+}
 
 // start quiz
 timerElement.setAttribute("style", "display: none");
+scores.setAttribute("style", "display: none");
 start.addEventListener("click", startQuiz);

@@ -12,19 +12,26 @@ h1 {
 }
 
 p {
-  margin-top: 50px;
   font-family: 'Questrial', sans-serif;
+}
+
+h2 {
+  text-align: center;
+}
+
+.welcome {
+  margin-top: 50px;
 }
 
 .btnDiv {
   text-align: center;
 }
 
-#start {
+.choice {
   border: 3px solid black;
   background-color: #1b3097;
   border-radius: 25px;
-  display: inline-block;
+  display: block;
   font-size: 16px;
   font-family: 'Questrial', sans-serif;
   line-height: 16px;
@@ -35,15 +42,16 @@ p {
   cursor: pointer;
 }
 
-h2 {
-  text-align: center;
+.headrow {
+  font-weight: bolder;
+  font-size: 20px;
 }
 
-.choice {
+#start {
   border: 3px solid black;
   background-color: #1b3097;
   border-radius: 25px;
-  display: block;
+  display: inline-block;
   font-size: 16px;
   font-family: 'Questrial', sans-serif;
   line-height: 16px;
@@ -78,6 +86,6 @@ h2 {
   display: inline-block;
 }
 
-.headrow {
-  font-weight: bolder;
+#restart {
+  margin-bottom: 50px;
 }
