@@ -18,7 +18,7 @@ var feedbackElement = document.getElementById("feedback");
 var scores = document.getElementById("scores-page");
 var userScore;
 var addInitials;
-var userInitials;
+var userInitials = "";
 var submitBtn;
 
 // question objects
@@ -175,7 +175,7 @@ function questionClick() {
 // change display to none
 // show div for scores
 // hide other divs
-// call enterInit()
+// call addUser()
 function endQuiz() {
   clearInterval(timerId);
   questionsElement.setAttribute("style", "display: none");
@@ -185,12 +185,13 @@ function endQuiz() {
   addUser();
 }
 
+// create user info input form
 function addUser() {
   userScore = document.createElement("p");
   addInitials = document.createElement("p");
   userInitials = document.createElement("input");
   submitBtn = document.createElement("button");
-  userScore.textContent = "Congratulations! You have scored " + time +"!";
+  userScore.textContent = "Congratulations! You have scored " + time + "!";
   addInitials.textContent = "Add your initials here:";
   userInitials.setAttribute("name", "initials");
   userInitials.setAttribute("placeholder", "Type initials here");
@@ -210,16 +211,18 @@ function addUser() {
 // store score in local storage
 // clear page as prep to render scores
 function enterInit() {
-  if(userInitials === "" || userInitials === null) {
-    displayMessage("Please enter your initials");
-  }
-  localStorage.setItem("playerInit", userInitials);
+  // if (userInitials !== "") {
+  //   addInitials.textContent = "Please add your initials!";
+  //   submitBtn.addEventListener("click", enterInit);
+  // } else {
+  localStorage.setItem("playerInit", userInitials.value);
   localStorage.setItem("score", time);
   userScore.setAttribute("style", "display: none");
   addInitials.setAttribute("style", "display: none");
   userInitials.setAttribute("style", "display: none");
   submitBtn.setAttribute("style", "display: none");
   displayScores();
+  // }
 }
 
 // render initials and scores from local storage to the page
@@ -234,7 +237,6 @@ function displayScores() {
   scores.appendChild(headRow);
   scores.appendChild(userInfo);
 }
-
 
 
 // start quiz
