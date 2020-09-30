@@ -168,7 +168,7 @@ function questionClick() {
   }
   setTimeout(function () {
     feedbackElement.setAttribute("style", "display: none");
-  }, 1200);
+  }, 2000);
   currentQuestionIndex++;
   if (currentQuestionIndex === questions.length) {
     endQuiz();
