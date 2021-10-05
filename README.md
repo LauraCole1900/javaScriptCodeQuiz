@@ -64,7 +64,7 @@ This project is intended to be used to review basic HTML, CSS, and JavaScript kn
 
 ## Technologies Used
 
-![HTML5](https://img.shields.io/badge/built%20with-HTML5-f06529) ![CSS3](https://img.shields.io/badge/built%20with-CSS3-2965f1) ![JavaScript](https://img.shields.io/badge/built%20with-JavaScript-f0db4f) ![Bootstrap](https://img.shields.io/badge/built%20with-Bootstrap-563d7c) ![Google Fonts](https://img.shields.io/badge/built%20with-Google%20Fonts-0f9d58)
+[![HTML5](https://img.shields.io/badge/built%20with-HTML5-f06529)](https://developer.mozilla.org/en-US/docs/Glossary/HTML5) [![CSS3](https://img.shields.io/badge/built%20with-CSS3-2965f1)](https://developer.mozilla.org/en-US/docs/Web/CSS) [![Bootstrap](https://img.shields.io/badge/built%20with-Bootstrap-563d7c)](https://getbootstrap.com/) [![Google Fonts](https://img.shields.io/badge/built%20with-Google%20Fonts-0f9d58)](https://fonts.google.com/)
 
 ## Tests
 
